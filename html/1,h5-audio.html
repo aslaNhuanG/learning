@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>h5 视频audio</title>
+</head>
+<body>
+
+  <!-- 视频容器 -->
+  <audio autoplay="autoplay" id="myAudio" loop="loop"
+         controls="controls" onvolumechange="" muted="muted">
+    <source src="xxx.ogg" type="audio/ogg; codecs-vorbis">
+    <source src="xxx.mp3" type="audio/mpeg">
+    An audio clip
+  </audio>
+
+  <script type="text/javascript">
+    var _myAudio = document.getElementById("myAudio");
+
+    // method
+    _myAudio.load();
+    _myAudio.play();
+    _myAudio.pause();
+    _myAudio.canPlayType("mp3");
+
+    // prop
+    _myAudio.duration;
+    _myAudio.paused;
+    _myAudio.ended;
+    _myAudio.startTime;
+    _myAudio.error;
+    _myAudio.currentSrc;
+
+  </script>
+
+</body>
+</html>
