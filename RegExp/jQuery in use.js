@@ -65,13 +65,22 @@ quickExpr = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
   rinlinejQuery = / jQuery\d+="(?:\d+|null)"/g,
   // 空白引导
   rleadingWhitespace = /^\s+/,
+
   // html4标签
+  // 1.简单的自关闭标签,eg:<div />
+  // 2.带属性的子关闭,eg:<div id="myId" />
+  // 3.多标签组合,eg: a<div />bcd<p id="p"/>ef
+  // 精髓:(?!)为反向前声明，要求接下来的字符不与模式p匹配，即出现在(?!...)内的标签跳过不做处理
+  // (([\w:]+)[^>]*)包含了标签和属性,eg:<a href="#"/>,中的 a href="#"
+  // ([\w:]+)只包含了标签a
   rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/ig,
+
+
   // 匹配标签名
   rtagName = /<([\w:]+)/,
   // 匹配tbody
   rtbody = /<tbody/i,
-  // 匹配ascii转义后的html
+  // 匹配转义,eg: 双引号 " <-> &quot; <-> &#34;
   rhtml = /<|&#?\w+;/,
   // 匹配script|style
   rnoInnerhtml = /<(?:script|style)/i,
