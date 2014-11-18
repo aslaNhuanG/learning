@@ -1,1 +1,3 @@
-css infomation
+canvas infomation
+
+一些canvas基础应用的学习
