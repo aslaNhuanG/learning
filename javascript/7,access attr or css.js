@@ -27,7 +27,7 @@ jQuery.extend({
 				if(exec){
 					// 如果为执行函数，则求出值，例如，fn为jQuery.attr
 					var _v = fn(elems[i], key);	
-					// 此时value为函数fn
+					// 此时value为可执行的回调函数,如$.css("id", function(){ return "qq" })
 					_val = value.call(elems[i], i, _v)
 				}else{
 					_val = value;
