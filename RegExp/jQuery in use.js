@@ -21,9 +21,9 @@ quickExpr = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
   rvalidchars = /^[\],:{}\s]*$/,
 // 验证转义 (比如\u5aFe)
   rvalidescape = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,
-// 验证数字（包含小数和科学计数）
+// 验证有效值(字符串，true，false，null，数值)
   rvalidtokens = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
-// 验证括号？
+// 匹配正确的左方括号
   rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
 
 // Useragent RegExp (用户代理用到的表达式)
