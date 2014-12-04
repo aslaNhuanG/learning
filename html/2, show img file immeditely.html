@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>show image</title>
+</head>
+<body>
+  <div>
+    <input type="file" id="hideInputFile" />
+    <img id="showHandler" src="" alt="" onclick="selectImg()" />
+    <button id="btnSend" onclick="send()">send</button>
+  </div>
+
+  <script type="text/javascript">
+  function selectImg(){
+    document.getElementById('hideInputFIle').click();
+  }
+
+  function showImg(evt){
+    if(!window.FileReader){
+      return false;
+    }
+    var obj = document.getElementById('hideInputFile');
+    var files = evt.files;
+    for(var i=0,f;f=files[i];i++){
+      if(!f.type.match('image.*')){
+        continue;
+      }
+      var reader = new FileReader();
+      reader.onload = function(e){
+          document.getElementById('showHandler').src = e.target.result;
+      };
+      // reader.readAsDataURL(f);
+    }
+  }
+
+  function send(){
+    var url = "path/to/back/service/url";
+    var _img = zipPic(document.getElementById('showHandler'));
+    $.post(url, { img: _img }, function(e){
+
+    })
+
+  }
+  </script>
+
+</body>
+</html>
